@@ -195,7 +195,8 @@ public class Location extends AppCompatActivity implements GoogleApiClient.OnCon
 
                     public void onProviderDisabled(String provider) {}
                 };
-                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+                txtView.setText("requestLocationUpdates - secondMethodInCaseOfFailure");
             } else {
                 txtView.setText("Location - Turned off");
             }
