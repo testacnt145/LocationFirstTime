@@ -28,7 +28,7 @@ import com.google.android.gms.location.LocationSettingsStatusCodes;
 import gaditek.com.util.LocationUtil;
 import gaditek.com.util.PermissionUtil;
 
-public class Location extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener,
+public class Location extends AppCompatActivity implements
         GoogleApiClient.ConnectionCallbacks {
 
     //this project will ensure to fetch user last latitude and longitude everytime
@@ -122,7 +122,6 @@ public class Location extends AppCompatActivity implements GoogleApiClient.OnCon
     void firstMethodForLocation() {
         googleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
                 .addApi(LocationServices.API)
                 .build();
         googleApiClient.connect();
@@ -162,11 +161,6 @@ public class Location extends AppCompatActivity implements GoogleApiClient.OnCon
 
     @Override
     public void onConnectionSuspended(int i) {
-
-    }
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
 
